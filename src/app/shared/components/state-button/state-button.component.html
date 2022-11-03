@@ -1,0 +1,17 @@
+
+<ng-container *ngIf="active">
+    <button [disabled]="mainClickDisabled"
+            (click)="mainClickEvent.emit()" class="btn-{{defaultColor}} btn">
+        {{defaultText}}
+    </button>
+</ng-container>
+<ng-container *ngIf="!active && !completed">
+    <button class="btn-{{loadingColor}} btn light simulated-no-click">
+        {{loadingText}}
+    </button>
+</ng-container>
+<ng-container *ngIf="completed">
+    <button class="btn-{{completedColor}} btn simulated-no-click">
+        {{completedText}}
+    </button>
+</ng-container>

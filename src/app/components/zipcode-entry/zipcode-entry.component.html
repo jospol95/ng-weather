@@ -1,0 +1,19 @@
+<div class="well">
+  <h2>Enter a zipcode:</h2>
+  <input type="text" [(ngModel)]="zipcode" placeholder="Zipcode"
+         class="form-control">
+
+  <auto-complete-component
+          #autoCompleteComponent
+          placeholder="Search a country"
+          [searchContent]="countries"
+          [(search)]="country">
+
+  </auto-complete-component>
+
+  <br>
+  <state-button-component
+          defaultText="Add location"
+          (mainClickEvent)="addLocation(this.zipcode)"
+          [loadable]="locationForecast$ | async"></state-button-component>
+</div>

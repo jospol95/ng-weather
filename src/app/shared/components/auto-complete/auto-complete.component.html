@@ -1,0 +1,16 @@
+<form [formGroup]="searchForm" novalidate>
+    <div class="auto-component-selector">
+        <input id="search"
+               (click)="toggleDropdown()"
+               formControlName="search"
+               type="text" placeholder="{{placeholder}}"
+               class="form-control">
+        <div clickOutside (clickOutsideEvent)="toggleDropdown()" *ngIf="show" class="results-container">
+            <div class="results-item"
+                 *ngFor="let result of searchContent | searchFilter:getSearchValue()"
+                 (click)="setValue(result)">
+                <span [innerHTML]="result | highlightSearch: getSearchValue()" ></span>
+            </div>
+        </div>
+    </div>
+</form>
