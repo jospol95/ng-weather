@@ -1,0 +1,63 @@
+/*:host {*/
+/*    --primary: hsl(229, 76%, 66%);*/
+/*    --primary-dark: hsl(229, 76%, 62%);*/
+/*    --primary-disabled: hsl(229, 56%, 80%);*/
+/*    --secondary: hsl(0, 0%, 88%);*/
+/*    --secondary-dark: hsl(0, 0%, 82%);*/
+/*    --secondary-disabled: hsl(0, 0%, 90%);*/
+/*    position: relative;*/
+/*    padding: 0.5rem 2rem;*/
+/*    font-size: 14px;*/
+/*    border: 1px solid transparent;*/
+/*    background: none;*/
+/*    border-radius: 8px;*/
+/*    cursor: pointer;*/
+/*    outline: none;*/
+/*    font-family: "Poppins", sans-serif;*/
+/*    font-weight: 500;*/
+/*}*/
+
+/*.label {*/
+/*    opacity: 1;*/
+/*    transform: translateY(0);*/
+/*    transition: transform 0.2s cubic-bezier(0.17, 0.67, 0.79, 1.03);*/
+/*}*/
+/*.loader {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*    opacity: 0;*/
+/*    transform: translateY(5px);*/
+/*    transition: transform 0.2s ease-in-out;*/
+/*}*/
+
+/*!* Primary Button Variant Styles *!*/
+/*:host(.primary) {*/
+/*    background: var(--primary);*/
+/*    color: #fff;*/
+/*}*/
+/*:host(.primary:hover) {*/
+/*    background: var(--primary-dark);*/
+/*}*/
+/*:host(.primary:not(.loading):focus) {*/
+/*    background: var(--primary-dark);*/
+/*    box-shadow: inset 0 0px 0px 1.5px #fff, 0 0px 0px 2px hsl(229deg 76% 66%);*/
+/*}*/
+/*:host(.primary.loading) {*/
+/*    pointer-events: none; !* <-- Disables button click *!*/
+/*    background: var(--primary-disabled);*/
+/*}*/
+
+/*!* Loading Styles *!*/
+/*:host(.loading) .loader {*/
+/*    opacity: 1;*/
+/*    transform: translateY(0px) scale(1);*/
+/*}*/
+/*:host(.loading) .label {*/
+/*    opacity: 0;*/
+/*    transform: translateY(-10px);*/
+/*}*/
