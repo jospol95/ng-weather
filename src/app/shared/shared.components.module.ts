@@ -5,7 +5,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {SearchFilterPipe} from './pipes/filter-pipe';
 import {HighlightSearchPipe} from './pipes/highlight-search';
 import {ClickOutsideDirective} from './directives/auto-complete.directive';
-import {NgForOf, NgIf} from '@angular/common';
+import {NgForOf, NgIf, NgTemplateOutlet} from '@angular/common';
+import {CustomThreeButtonStateComponent} from './components/custom-three-state-button/custom-three-button-state.component';
+import {ButtonLoaderIconDirective} from './directives/loader-button.directive';
 
 
 @NgModule({
@@ -14,15 +16,21 @@ import {NgForOf, NgIf} from '@angular/common';
         SearchFilterPipe,
         ClickOutsideDirective,
         HighlightSearchPipe,
-        StateButtonComponent],
+        StateButtonComponent,
+        CustomThreeButtonStateComponent,
+        ButtonLoaderIconDirective
+    ],
     imports: [
         ReactiveFormsModule,
         NgForOf,
         NgIf,
+        NgTemplateOutlet,
     ],
     exports: [
         AutoCompleteComponent,
-        StateButtonComponent
+        StateButtonComponent,
+        CustomThreeButtonStateComponent,
+        ButtonLoaderIconDirective
     ]
 })
 export class SharedComponentsModule {

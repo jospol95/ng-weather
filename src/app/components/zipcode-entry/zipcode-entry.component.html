@@ -11,9 +11,24 @@
 
   </auto-complete-component>
 
-  <br>
-  <state-button-component
-          defaultText="Add location"
-          (mainClickEvent)="addLocation(this.zipcode)"
-          [loadable]="locationForecast$ | async"></state-button-component>
+  <state-btn-component [initialTemplate]="save"
+                       [loadingTemplate]="saving"
+                       [doneTemplate]="saved"
+                       (mainClickEvent)="addLocation(this.zipcode)"
+                       [loadable]="locationForecast$ | async"
+  >
+  </state-btn-component>
+
+  <ng-template #save>
+    Add location
+  </ng-template>
+
+  <ng-template #saving>
+    Saving...
+  </ng-template>
+
+  <ng-template #saved>
+    Done!
+  </ng-template>
+
 </div>
