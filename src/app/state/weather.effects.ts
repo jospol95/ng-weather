@@ -15,14 +15,6 @@ import {
 import {WeatherService} from '../services/weather.service';
 import {CurrentForecast} from '../types/current-forecast.type';
 
-function mockApiResponse(): Observable<{ currentForecast: string }> {
-    return of({
-        currentForecast: 'daily forecast'
-    }).pipe(
-        delay(1000)
-    );
-}
-
 @Injectable()
 export class WeatherEffects {
 

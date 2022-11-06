@@ -15,11 +15,12 @@ export interface ActionTypes {
     errorActionType: string | string[];
     successInitActionType: string | string[];
     removeActionType: string | string[];
+    successUpdateActionType: string | string[];
 }
 
 export function withLoadable<T extends Loadable, U extends Action = Action>
 (reducer: ReducerFunction<T, U>, {initLoadActionType, loadingActionType, successActionType,
-    errorActionType, successInitActionType, removeActionType}: ActionTypes) {
+    errorActionType, successInitActionType, removeActionType, successUpdateActionType}: ActionTypes) {
     return (state: T, action: U): T => {
         if (matchType(removeActionType, action.type)) {
             state = onDefault(state);
@@ -37,6 +38,9 @@ export function withLoadable<T extends Loadable, U extends Action = Action>
             state = onLoadableError(state, (action as any).error);
         }
         if(matchType(successInitActionType, action.type)){
+            state = onDefault(state);
+        }
+        if(matchType(successUpdateActionType, action.type)){
             state = onDefault(state);
         }
         return reducer(state, action);
