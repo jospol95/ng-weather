@@ -21,18 +21,19 @@ import {Loadable} from '../../../state/loadable';
     styleUrls: ['./custom-three-button-state.component.css']
 })
 
-export class CustomThreeButtonStateComponent implements OnInit, OnChanges, AfterViewInit {
-    ngAfterViewInit(): void {
-        this.parentButton.nativeElement.classList.add('btn');
-        this.parentButton.nativeElement.classList.add('btn-primary');
-    }
+export class CustomThreeButtonStateComponent implements OnInit, OnChanges {
+
     @Input() resetAfter = 500;
     @Input() initialTemplate: TemplateRef<any>;
     @Input() loadingTemplate: TemplateRef<any>;
     @Input() doneTemplate: TemplateRef<any>;
     @Input() loadable: Loadable;
+    @Input() loadingClass: string = 'lighter'
+    @Input() initialClass: string;
+    @Input() doneClass: string;
     @Output() mainClickEvent = new EventEmitter();
     @ViewChild('parentButton') parentButton: ElementRef;
+    ngClassObj: any;
 
     currentTemplate: TemplateRef<any>;
 
@@ -43,17 +44,17 @@ export class CustomThreeButtonStateComponent implements OnInit, OnChanges, After
     ngOnChanges(changes: SimpleChanges): void {
         if (!changes.loadable.currentValue.loading && !changes.loadable.currentValue.success) {
             //Active state
-            this.currentTemplate = this.initialTemplate;
+            this.setActive();
         }
         if (changes.loadable.currentValue.loading) {
             //Loading state
-            this.currentTemplate = this.loadingTemplate;
+           this.setLoading();
         }
         if (changes.loadable.currentValue.success) {
             //Done state
-            this.currentTemplate = this.doneTemplate;
+            this.setDone();
             setTimeout(() => {
-                this.currentTemplate = this.initialTemplate;
+                this.setActive();
             }, this.resetAfter);
 
         }
@@ -63,4 +64,25 @@ export class CustomThreeButtonStateComponent implements OnInit, OnChanges, After
         this.mainClickEvent.emit();
         // this.action$.subscribe(() => this.currentTemplate = this.doneTemplate);
     }
+
+    private setActive(){
+        this.currentTemplate = this.initialTemplate;
+        this.ngClassObj = this.initialClass;
+        if(this.parentButton){
+            this.parentButton.nativeElement.disabled = false;
+        }
+    }
+
+    private setLoading(){
+        this.currentTemplate = this.loadingTemplate;
+        this.ngClassObj = this.initialClass + this.loadingClass;
+        this.parentButton.nativeElement.disabled = true;
+    }
+
+    private setDone(){
+        this.currentTemplate = this.doneTemplate;
+        this.ngClassObj = this.doneClass;
+        this.parentButton.nativeElement.disabled = true;
+    }
+
 }

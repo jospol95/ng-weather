@@ -5,7 +5,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {SearchFilterPipe} from './pipes/filter-pipe';
 import {HighlightSearchPipe} from './pipes/highlight-search';
 import {ClickOutsideDirective} from './directives/auto-complete.directive';
-import {NgForOf, NgIf, NgTemplateOutlet} from '@angular/common';
+import {NgClass, NgForOf, NgIf, NgTemplateOutlet} from '@angular/common';
 import {CustomThreeButtonStateComponent} from './components/custom-three-state-button/custom-three-button-state.component';
 import {ButtonLoaderIconDirective} from './directives/loader-button.directive';
 
@@ -25,6 +25,7 @@ import {ButtonLoaderIconDirective} from './directives/loader-button.directive';
         NgForOf,
         NgIf,
         NgTemplateOutlet,
+        NgClass,
     ],
     exports: [
         AutoCompleteComponent,
