@@ -37,7 +37,6 @@ export class CurrentConditionsComponent implements OnInit, OnDestroy{
     }
 
     updateWeather($event: {index: number, zipcode: string, countryCode: string}){
-        console.log('time');
         const action = new UpdateWeather({index: $event.index, zipcode: $event.zipcode, countryCode: $event.countryCode});
         this.store.dispatch(action);
     }

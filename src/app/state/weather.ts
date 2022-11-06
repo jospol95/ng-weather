@@ -45,6 +45,7 @@ export function weatherReducer(state: Weather, action: NewWeatherActionUnion): W
         successActionType: WeatherActionTypes.LoadSuccess,
         errorActionType: WeatherActionTypes.LoadError,
         successInitActionType: WeatherActionTypes.InitialLoadSuccess,
-        removeActionType: WeatherActionTypes.RemoveForecast
+        removeActionType: WeatherActionTypes.RemoveForecast,
+        successUpdateActionType: WeatherActionTypes.UpdateSuccess
     })(state,action)
 }

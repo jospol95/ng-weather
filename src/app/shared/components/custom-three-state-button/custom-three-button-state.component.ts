@@ -75,7 +75,7 @@ export class CustomThreeButtonStateComponent implements OnInit, OnChanges {
 
     private setLoading(){
         this.currentTemplate = this.loadingTemplate;
-        this.ngClassObj = this.initialClass + this.loadingClass;
+        this.ngClassObj = this.initialClass + ' ' + this.loadingClass;
         this.parentButton.nativeElement.disabled = true;
     }
 

@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {AutoCompleteComponent} from './components/auto-complete/auto-complete.component';
-import {StateButtonComponent} from './components/state-button/state-button.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SearchFilterPipe} from './pipes/filter-pipe';
 import {HighlightSearchPipe} from './pipes/highlight-search';
@@ -16,7 +15,6 @@ import {ButtonLoaderIconDirective} from './directives/loader-button.directive';
         SearchFilterPipe,
         ClickOutsideDirective,
         HighlightSearchPipe,
-        StateButtonComponent,
         CustomThreeButtonStateComponent,
         ButtonLoaderIconDirective
     ],
@@ -29,7 +27,6 @@ import {ButtonLoaderIconDirective} from './directives/loader-button.directive';
     ],
     exports: [
         AutoCompleteComponent,
-        StateButtonComponent,
         CustomThreeButtonStateComponent,
         ButtonLoaderIconDirective
     ]
